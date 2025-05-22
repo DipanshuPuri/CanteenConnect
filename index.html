@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CanteenConnect - College Canteen Food Ordering</title>
+<link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <h1 class="logo" tabindex="0">CanteenConnect</h1>
+      <nav aria-label="Primary navigation">
+        <button id="menu-view-btn" aria-pressed="true" class="nav-btn active" aria-label="View Menu">Menu</button>
+        <button id="orders-view-btn" aria-pressed="false" class="nav-btn" aria-label="View My Orders">My Orders</button>
+        <div id="cart-icon" role="button" aria-label="Open Cart" tabindex="0" class="cart-icon">
+          <svg width="24" height="24" fill="none" stroke="#4b9741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span id="cart-count" aria-live="polite" aria-atomic="true" class="cart-count">0</span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="search-filter" class="container-flex" aria-label="Search and filter menu items">
+      <input type="search" id="search-bar" placeholder="Search items..." aria-label="Search items by name" />
+      <select id="filter-category" aria-label="Filter by category" title="Filter by category">
+        <option value="all" selected>All Categories</option>
+        <option value="Snacks">Snacks</option>
+        <option value="Main Course">Main Course</option>
+        <option value="Beverages">Beverages</option>
+      </select>
+      <select id="filter-veg" aria-label="Filter by Veg / Non-Veg" title="Filter by Veg / Non-Veg">
+        <option value="all" selected>All</option>
+        <option value="veg">Veg</option>
+        <option value="nonveg">Non-Veg</option>
+      </select>
+      <select id="filter-price" aria-label="Filter by price range" title="Filter by price range">
+        <option value="all" selected>All Prices</option>
+        <option value="low">Under $50</option>
+        <option value="mid">$50 - $100</option>
+        <option value="high">Above $100</option>
+      </select>
+    </section>
+
+    <section id="menu" class="container" aria-label="Menu items" tabindex="0">
+      <!-- Menu items dynamically inserted here -->
+    </section>
+
+    <aside id="cart-sidebar" aria-label="Shopping cart" aria-live="polite" aria-atomic="true" tabindex="0">
+      <h2>Your Cart</h2>
+      <div class="cart-items">
+        <!-- Cart items dynamically inserted here -->
+      </div>
+      <div class="cart-summary">
+        <div class="total-label">Total</div>
+        <div id="cart-total" class="total-value">$0</div>
+      </div>
+      <button id="place-order-btn" disabled aria-disabled="true" class="btn-primary">Place Order</button>
+    </aside>
+
+    <section id="orders-page" class="container" aria-label="My Orders" tabindex="0" hidden>
+      <h2>My Orders</h2>
+      <div id="orders-list">
+        <!-- Orders dynamically inserted here -->
+      </div>
+      <p class="no-orders-msg" hidden>No orders placed yet.</p>
+    </section>
+  </main>
+
+  <div id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+  <div id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" hidden>
+    <div id="modal-content">
+      <h2 id="modal-title">Order Placed!</h2>
+      <p id="modal-desc">Your order has been placed successfully. Thank you for ordering with CanteenConnect!</p>
+      <button id="close-modal" class="btn-primary">Close</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
